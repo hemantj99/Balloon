@@ -115,7 +115,7 @@ afterEvaluate {
         from(components["release"])
         groupId = "com.github.hemantj99"
         artifactId = "balloon-compose"
-        version = "6e7cbec6de"
+        version = "7b3c126b25"
       }
     }
   }
