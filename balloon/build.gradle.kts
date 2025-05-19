@@ -28,19 +28,19 @@ plugins {
 
 apply(from = "${rootDir}/scripts/publish-module.gradle.kts")
 
-mavenPublishing {
-  val artifactId = "balloon"
-  coordinates(
-    Configuration.artifactGroup,
-    artifactId,
-    rootProject.extra.get("libVersion").toString()
-  )
-
-  pom {
-    name.set(artifactId)
-    description.set("Modernized and sophisticated tooltips, fully customizable with an arrow and animations for Android.")
-  }
-}
+//mavenPublishing {
+//  val artifactId = "balloon"
+//  coordinates(
+//    Configuration.artifactGroup,
+//    artifactId,
+//    rootProject.extra.get("libVersion").toString()
+//  )
+//
+//  pom {
+//    name.set(artifactId)
+//    description.set("Modernized and sophisticated tooltips, fully customizable with an arrow and animations for Android.")
+//  }
+//}
 
 android {
   compileSdk = Configuration.compileSdk
