@@ -23,6 +23,7 @@ plugins {
   id(libs.plugins.nexus.plugin.get().pluginId)
   id(libs.plugins.baseline.profile.get().pluginId)
   id(libs.plugins.dokka.get().pluginId)
+  id("maven-publish")
 }
 
 apply(from = "${rootDir}/scripts/publish-module.gradle.kts")
@@ -112,4 +113,17 @@ dependencies {
 
   baselineProfile(project(":benchmark"))
   dokkaPlugin(libs.android.documentation.plugin)
+}
+
+afterEvaluate {
+  publishing {
+    publications {
+      create<MavenPublication>("release") {
+        from(components["release"])
+        groupId = "com.github.hemantj99"
+        artifactId = "Balloon"
+        version = "6e7cbec6de"
+      }
+    }
+  }
 }
