@@ -114,7 +114,7 @@ afterEvaluate {
       create<MavenPublication>("release") {
         from(components["release"])
         groupId = "com.github.hemantj99"
-        artifactId = "balloon"
+        artifactId = "balloon-compose"
         version = "6e7cbec6de"
       }
     }
