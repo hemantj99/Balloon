@@ -14,19 +14,19 @@ plugins {
 
 apply(from = "${rootDir}/scripts/publish-module.gradle.kts")
 
-//mavenPublishing {
-//  val artifactId = "balloon-compose"
-//  coordinates(
-//    Configuration.artifactGroup,
-//    artifactId,
-//    rootProject.extra.get("libVersion").toString()
-//  )
-//
-//  pom {
-//    name.set(artifactId)
-//    description.set("Modernized and sophisticated tooltips, fully customizable with an arrow and animations for Android.")
-//  }
-//}
+mavenPublishing {
+  val artifactId = "balloon-compose"
+  coordinates(
+    Configuration.artifactGroup,
+    artifactId,
+    rootProject.extra.get("libVersion").toString()
+  )
+
+  pom {
+    name.set(artifactId)
+    description.set("Modernized and sophisticated tooltips, fully customizable with an arrow and animations for Android.")
+  }
+}
 
 android {
   compileSdk = Configuration.compileSdk
@@ -107,17 +107,3 @@ dependencies {
   baselineProfile(project(":benchmark"))
   dokkaPlugin(libs.android.documentation.plugin)
 }
-
-afterEvaluate {
-  publishing {
-    publications {
-      create<MavenPublication>("release") {
-        from(components["release"])
-        groupId = "com.github.hemantj99"
-        artifactId = "balloon-compose"
-        version = "7b3c126b25"
-      }
-    }
-  }
-}
-
